@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+  <style>
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="text"], input[type="email"], input[type="password"] {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Registration Form</h2>
+  <form id="registrationForm" onsubmit="return validateForm()">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      var email = document.getElementById('email').value;
+      var name = document.getElementById('name').value;
+      var password = document.getElementById('password').value;
+
+      if (email === '' || name === '' || password === '') {
+        alert('Please fill all the values');
+        return false; // Prevent form submission
+      }
+
+      return true; // Allow form submission
+    }
+  </script>
+
+</body>
+</html>
